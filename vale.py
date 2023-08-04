@@ -1,3 +1,4 @@
+import os
 import openpyxl
 
 def generar_excel():
@@ -13,6 +14,11 @@ def generar_excel():
     # Obtiene el nombre del archivo (sin la extensión) para guardarlo con el mismo nombre
     nombre_archivo = "HelloWorld.xlsx"
 
+    # Verificar si el archivo ya existe
+    if os.path.exists(nombre_archivo):
+        # Eliminar el archivo existente antes de guardar el nuevo
+        os.remove(nombre_archivo)
+
     # Guarda el archivo
     wb.save(nombre_archivo)
 
@@ -20,3 +26,4 @@ def generar_excel():
 
 if __name__ == "__main__":
     generar_excel()
+
